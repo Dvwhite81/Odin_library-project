@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the library</h1>
+        <div class="books-container"></div>
+        <button id="myBtn">Add a book</button>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form>
+                    <label for="title">Book Name?</label>
+                    <input type="text" name="title" id="titleInput" required>
+                    <label for="author">Book Author?</label>
+                    <input type="text" name="author" id="authorInput" required>
+                    <label for="pages">How Many Pages?</label>
+                    <input type="number" name="pages" id="pagesInput" required>
+                    <button id="submitBtn" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
