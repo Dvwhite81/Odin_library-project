@@ -20,11 +20,14 @@ function addBookToLibrary(book) {
   card.setAttribute("data-id", book.id);
   card.innerHTML = `
         <button class="remove" data-key="${book.id}">&#128473;</button>
-        <button class="mark-read">&#10004;</button>
+        <button class="mark-read" data-key="${book.id}">
+          <span class="read-yes">&#10004;</span>
+          <span class="read-no">&#63;</span>
+        </button>
         <div class="card-row">${book.title}</div>
         <div class="card-row">${book.author}</div>
         <div class="card-row">${book.pages} pages</div>
-    `;
+  `;
 
   container.append(card);
 
@@ -32,6 +35,11 @@ function addBookToLibrary(book) {
   removeBtns.forEach((btn) => {
     btn.addEventListener("click", removeBook);
   });
+
+   const readBtns = Array.from(document.getElementsByClassName("mark-read"));
+   readBtns.forEach((btn) => {
+    btn.addEventListener("click", markRead);
+   });
 }
 
 myLibrary.forEach((book) => addBookToLibrary(book));
@@ -88,4 +96,15 @@ function removeBook(e) {
 
   myLibrary.splice(id, 1);
   book.remove();
+};
+
+function markRead(e) {
+  const id = e.target.parentNode.dataset.key;
+  const book = myLibrary[id];
+  book.read = true;
+
+  const readSpan = document.querySelectorAll('.read-yes')[id];
+  const unreadSpan = document.querySelectorAll('.read-no')[id];
+  readSpan.style.visibility = 'visible';
+  unreadSpan.style.visibility = 'hidden';
 }

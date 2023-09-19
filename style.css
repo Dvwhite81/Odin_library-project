@@ -58,6 +58,10 @@ h1 {
     top: 0;
 }
 
+.card .read-yes {
+    visibility: hidden;
+}
+
 button {
     background-color: lightgray;
     border: none;
