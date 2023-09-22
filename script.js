@@ -4,12 +4,14 @@ const myLibrary = [
   { title: "Sweet Jane", author: "Bob Odenkirk", pages: 836, read: false, id: 2 },
 ];
 
-function Book(title, author, pages, read=false, id) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.id = id;
+class Book {
+  constructor(title, author, pages, read=false, id) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.id = id;
+  }
 }
 
 function addBookToLibrary(book) {
